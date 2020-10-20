@@ -1,25 +1,34 @@
 package com.thoughtworks.capacity.gtb.mvc.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class User {
-    private String userName;
+    @NotNull(message = "用户名不为空")
+    @Pattern(regexp = "\\w{3,10}$", message = "用户名不合法")
+    private String username;
+    @NotNull(message = "密码是不为空")
+    @Pattern(regexp = "^.{5,12}$", message = "密码不合法")
     private String password;
+    @Email(message = "邮箱地址不合法")
     private String email;
 
     public User() {
     }
 
     public User(String userName, String password, String email) {
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
