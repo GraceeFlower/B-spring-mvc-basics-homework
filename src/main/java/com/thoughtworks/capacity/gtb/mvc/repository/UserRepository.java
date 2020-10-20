@@ -17,4 +17,10 @@ public class UserRepository {
     public List<User> findAll() {
         return userList;
     }
+
+    public boolean getUser(String username, String password) {
+        return userList.stream()
+                .anyMatch(user -> user.getUsername().equals(username)
+                        && user.getPassword().equals(password));
+    }
 }

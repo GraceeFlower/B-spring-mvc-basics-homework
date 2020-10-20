@@ -19,6 +19,18 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
 
+    @ExceptionHandler(InvalidUserException.class)
+    public ResponseEntity<ErrorResult> handle(InvalidUserException e) {
+        ErrorResult errorResult = new ErrorResult(e.getMessage(), HttpStatus.UNAUTHORIZED);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResult);
+    }
+
+    @ExceptionHandler(InvalidFormatException.class)
+    public ResponseEntity<ErrorResult> handle(InvalidFormatException e) {
+        ErrorResult errorResult = new ErrorResult(e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResult> handle(MethodArgumentNotValidException ex) {
         String message = Objects.requireNonNull(ex.getBindingResult().getFieldError()).getDefaultMessage();
