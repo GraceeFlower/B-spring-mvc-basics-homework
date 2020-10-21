@@ -1,4 +1,4 @@
-package com.thoughtworks.capacity.gtb.mvc.dataProvider;
+package com.thoughtworks.capacity.gtb.mvc.dataprovider;
 
 import com.thoughtworks.capacity.gtb.mvc.model.User;
 

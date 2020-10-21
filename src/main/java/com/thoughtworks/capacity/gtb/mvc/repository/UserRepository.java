@@ -1,6 +1,6 @@
 package com.thoughtworks.capacity.gtb.mvc.repository;
 
-import com.thoughtworks.capacity.gtb.mvc.dataProvider.DataProvider;
+import com.thoughtworks.capacity.gtb.mvc.dataprovider.DataProvider;
 import com.thoughtworks.capacity.gtb.mvc.model.User;
 import org.springframework.stereotype.Repository;
 
